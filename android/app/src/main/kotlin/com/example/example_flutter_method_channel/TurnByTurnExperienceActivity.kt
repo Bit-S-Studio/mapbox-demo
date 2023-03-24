@@ -278,7 +278,7 @@ class TurnByTurnExperienceActivity : AppCompatActivity() {
      */
     private val navigationLocationProvider = NavigationLocationProvider()
 
-    var tokenMapBox = "YOU-ACCESS-TOKEN-HERE"
+    var tokenMapBox = "sk.eyJ1IjoiZmFiaW9saW4iLCJhIjoiY2wzdnZsemowMnEwMzNwbTlteXhlb3NzMyJ9.PYMYGyQLANiuJKPXqgbmnQ"
 
     /**
      * Gets notified with location updates.

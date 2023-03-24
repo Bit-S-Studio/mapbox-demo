@@ -10,7 +10,7 @@ buildscript {
             }
             credentials {
                 username = "mapbox"
-                password = 'YOU-ACCESS-TOKEN-HERE'
+                password = 'sk.eyJ1IjoiZmFiaW9saW4iLCJhIjoiY2wzdnZsemowMnEwMzNwbTlteXhlb3NzMyJ9.PYMYGyQLANiuJKPXqgbmnQ'
                 if (password == null || password == "") {
                     throw new GradleException("MAPBOX_DOWNLOADS_TOKEN isn't set. Set it to the project properties or to the enviroment variables.")
                 }
@@ -38,7 +38,7 @@ allprojects {
             }
             credentials {
                 username = "mapbox"
-                password = 'YOU-ACCESS-TOKEN-HERE'
+                password = 'sk.eyJ1IjoiZmFiaW9saW4iLCJhIjoiY2wzdnZsemowMnEwMzNwbTlteXhlb3NzMyJ9.PYMYGyQLANiuJKPXqgbmnQ'
                 if (password == null || password == "") {
                     throw new GradleException("MAPBOX_DOWNLOADS_TOKEN isn't set. Set it to the project properties or to the enviroment variables.")
                 }
