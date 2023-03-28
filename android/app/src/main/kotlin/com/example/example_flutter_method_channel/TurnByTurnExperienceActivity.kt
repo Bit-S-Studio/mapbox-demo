@@ -621,6 +621,15 @@ class TurnByTurnExperienceActivity : AppCompatActivity() {
         startPointLon = intent.getDoubleExtra("startPointLon", 0.0)
         endPointLat = intent.getDoubleExtra("endPointLat", 0.0)
         endPointLong = intent.getDoubleExtra("endPointLong", 0.0)
+
+        Log.d(tag, startPointLat.toString())
+
+        Log.d(tag, startPointLon.toString())
+                
+        Log.d(tag, endPointLat.toString())
+
+        Log.d(tag,endPointLong.toString())
+
         if(changePointLng!=null && changePointLng!=0.0){
             startPointLat=changePointLat
             startPointLon=changePointLng
@@ -634,10 +643,9 @@ class TurnByTurnExperienceActivity : AppCompatActivity() {
         mapboxNavigation.registerVoiceInstructionsObserver(voiceInstructionsObserver)
         mapboxNavigation.registerRouteProgressObserver(replayProgressObserver)
 
+        Log.d(tag,"START")
+
         if (mapboxNavigation.getNavigationRoutes().toDirectionsRoutes().isEmpty()) {
-            // if simulation is enabled (ReplayLocationEngine set to NavigationOptions)
-            // but we're not simulating yet,
-            // push a single location sample to establish origin
             mapboxReplayer.pushEvents(
                 listOf(
                     ReplayRouteMapper.mapToUpdateLocation(
@@ -647,23 +655,14 @@ class TurnByTurnExperienceActivity : AppCompatActivity() {
                 )
             )
             mapboxReplayer.playFirstLocation()
-            //var originPoint:Point=null
-         /*   if(changePointLng!=null && changePointLng!=0.0){
-              val  originPoint = Point.fromLngLat(changePointLat, changePointLng)
-                mapboxMap.loadStyleUri(Style.MAPBOX_STREETS) { style ->
-                    routeLineView.initializeLayers(style)
-                    findRoute(originPoint)
-                }
-            }else{
 
-            }*/
             val  originPoint = Point.fromLngLat(endPointLong, endPointLat)
             mapboxMap.loadStyleUri(Style.MAPBOX_STREETS) { style ->
                 routeLineView.initializeLayers(style)
                 findRoute(originPoint)
             }
-
-
+        }else{
+            Log.d(tag,"NOT STARTER")
         }
     }
 

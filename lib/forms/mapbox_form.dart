@@ -6,14 +6,17 @@ class MapBoxForm {
   final formGroup = FormGroup({
     ConstantsForms.startPoint:
         FormControl<String>(value: '', validators: [Validators.required]),
-    ConstantsForms.startPointLat: FormControl<double>(value: 0.0),
-    ConstantsForms.startPointLong: FormControl<double>(value: 0.0),
+    ConstantsForms.startPointLat:
+        FormControl<double>(value: null, validators: [Validators.required]),
+    ConstantsForms.startPointLong: FormControl<double>(value: null),
     ConstantsForms.endPoint:
         FormControl<String>(value: '', validators: [Validators.required]),
-    ConstantsForms.endPointLat: FormControl<double>(value: 0.0),
-    ConstantsForms.endPointLong: FormControl<double>(value: 0.0),
-    ConstantsForms.destinationLong: FormControl<double>(value: 0.0),
-    ConstantsForms.destinationLat: FormControl<double>(value: 0.0),
+    ConstantsForms.endPointLat:
+        FormControl<double>(value: null, validators: [Validators.required]),
+    ConstantsForms.endPointLong:
+        FormControl<double>(value: null, validators: [Validators.required]),
+    ConstantsForms.destinationLong: FormControl<double>(value: null),
+    ConstantsForms.destinationLat: FormControl<double>(value: null),
   });
 
   String get startPoint => formGroup.control(ConstantsForms.startPoint).value;
@@ -50,13 +53,13 @@ class MapBoxForm {
 
   void reset() {
     formGroup.control(ConstantsForms.startPoint).value = '';
-    formGroup.control(ConstantsForms.startPointLat).value = '';
-    formGroup.control(ConstantsForms.startPointLong).value = '';
+    formGroup.control(ConstantsForms.startPointLat).value = null;
+    formGroup.control(ConstantsForms.startPointLong).value = null;
     formGroup.control(ConstantsForms.endPoint).value = '';
-    formGroup.control(ConstantsForms.endPointLat).value = '';
-    formGroup.control(ConstantsForms.endPointLong).value = '';
-    formGroup.control(ConstantsForms.destinationLong).value = 0.0;
-    formGroup.control(ConstantsForms.destinationLat).value = 0.0;
+    formGroup.control(ConstantsForms.endPointLat).value = null;
+    formGroup.control(ConstantsForms.endPointLong).value = null;
+    formGroup.control(ConstantsForms.destinationLong).value = null;
+    formGroup.control(ConstantsForms.destinationLat).value = null;
   }
 
   void showErrors() {

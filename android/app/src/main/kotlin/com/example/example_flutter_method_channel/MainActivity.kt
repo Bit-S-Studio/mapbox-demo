@@ -23,7 +23,13 @@ class MainActivity : FlutterActivity() {
                 myMMap.clear()
                 myMMap.putAll(call.arguments as HashMap<String, Double>)
 
-                Log.i(tag, myMMap["startPointLat"].toString())
+                Log.d(tag, myMMap["startPointLat"].toString())
+
+                Log.d(tag, myMMap["startPointLon"].toString())
+                
+                Log.d(tag, myMMap["endPointLat"].toString())
+
+                Log.d(tag, myMMap["endPointLong"].toString())
 
                 goHomeActivity()
             } else {
@@ -45,7 +51,7 @@ class MainActivity : FlutterActivity() {
         intent.putExtra("startPointLon", myMMap["startPointLon"])
         intent.putExtra("endPointLat", myMMap["endPointLat"])
         intent.putExtra("endPointLong", myMMap["endPointLong"])
-        Log.i(tag, myMMap["startPointLat"].toString())
+
         startActivity(intent)
     }
 }

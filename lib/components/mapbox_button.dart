@@ -18,20 +18,22 @@ class MapBoxButton extends StatelessWidget {
             form.control(ConstantsForms.destinationLong).value;
         final startPointLat = form.control(ConstantsForms.startPointLat).value;
         final startPointLon = form.control(ConstantsForms.startPointLong).value;
-        final endPointLat = form.control(ConstantsForms.destinationLat).value;
-        final endPointLong = form.control(ConstantsForms.destinationLat).value;
+        final endPointLat = form.control(ConstantsForms.endPointLat).value;
+        final endPointLong = form.control(ConstantsForms.endPointLong).value;
         return ElevatedButton(
           onPressed: () {
             if (form.valid) {
               Map data = {
                 "changePointLat": destinationLat,
                 "changePointLng": destinationLong,
-                "startPointLat": startPointLat.toString(),
-                "startPointLon": startPointLon.toString(),
-                "endPointLat": endPointLat.toString(),
-                "endPointLong": endPointLong.toString(),
+                "startPointLat": startPointLat,
+                "startPointLon": startPointLon,
+                "endPointLat": endPointLat,
+                "endPointLong": endPointLong,
               };
               controller.postDataToNative(data);
+            } else {
+              controller.form.showErrors();
             }
           },
           child: const Text('Start Navigator'),
